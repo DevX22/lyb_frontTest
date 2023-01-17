@@ -1,9 +1,11 @@
 // Chcek out Damian Denis on Dribbble
 // https://dribbble.com/shots/5587903-ECHO-Voice-chat-for-gamers
 
-var socket = io.connect("http://localhost:3200/");
+var socket = io.connect("https://lyb-boot-api.onrender.com");
 socket.on("res", function (data) {
-  addHtmlRes(data["msg"]);
+  if(data["msg"]!==""){
+    addHtmlRes(data["msg"]);
+  }
 });
 
 var elInput = document.querySelector('.chat__conversation-panel__input');
